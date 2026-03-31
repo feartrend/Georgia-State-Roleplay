@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>News & Announcements — Georgia State Roleplay</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .news-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    @media (max-width: 720px) { .news-grid { grid-template-columns: 1fr; } }
+
+    /* ANNOUNCEMENT CARD */
+    .ann-card {
+      background: var(--white);
+      border: .5px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      transition: border-color .15s;
+    }
+    .ann-card:hover { border-color: var(--gold); }
+    .ann-card-top {
+      padding: 1.25rem 1.5rem 1rem;
+    }
+    .ann-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .ann-tag {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 2px 9px;
+      border-radius: 3px;
+    }
+    .tag-update   { background: #e8f0fb; color: #1a4a8a; }
+    .tag-policy   { background: var(--warn-bg); color: var(--warn); }
+    .tag-general  { background: var(--green-bg); color: var(--green); }
+    .tag-alert    { background: var(--danger-bg); color: var(--danger); }
+    .ann-date {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .05em;
+    }
+    .ann-pinned {
+      margin-left: auto;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(200,168,75,.1);
+      border: 1px solid rgba(200,168,75,.25);
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+    .ann-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 20px; font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .ann-body {
+      font-size: 14px;
+      color: #4a5a6a;
+      line-height: 1.75;
+    }
+    .ann-divider { height: .5px; background: var(--border); }
+    .ann-footer {
+      padding: .75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface);
+    }
+    .ann-author {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .04em;
+    }
+    .ann-author span { color: var(--navy); font-weight: 600; }
+
+    /* SIDEBAR */
+    .sidebar-card {
+      background: var(--white);
+      border: .5px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .sidebar-header {
+      background: var(--navy);
+      padding: 10px 16px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .sidebar-body { padding: .75rem 1rem; }
+    .sidebar-item {
+      display: flex;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: .5px solid #edf0f4;
+      align-items: flex-start;
+    }
+    .sidebar-item:last-child { border-bottom: none; }
+    .sidebar-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+    .sidebar-text { font-size: 13px; color: var(--text); line-height: 1.5; }
+    .sidebar-date { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    .apply-sidebar {
+      background: var(--navy);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .apply-sidebar-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px; font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .apply-sidebar-sub { font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 1.25rem; line-height: 1.6; }
+    .apply-sidebar-btn {
+      display: block;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .apply-sidebar-btn:hover { background: var(--gold-light); }
+
+    .placeholder-note {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .placeholder-note p {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 13px; letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">Georgia <span class="brand-accent">State Roleplay</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="leo.html" class="nav-link">LEO</a>
+      <a href="news.html" class="nav-link active">News</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSexq14qBdljia67RD5OjIw9W_7dXsVxxyWm_G74cuer-xPQ9Q/viewform?usp=dialog" target="_blank" class="nav-link apply-btn">Join Staff</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">Georgia State Roleplay</div>
+      <div class="page-title">News & Announcements</div>
+      <div class="page-sub">Stay up to date with server updates, policy changes, and community news.</div>
+    </div>
+  </div>
+  <div class="gold-bar"></div>
+
+  <div class="page-content">
+    <div class="news-grid">
+
+      <!-- MAIN FEED -->
+      <div>
+
+        <!-- PINNED -->
+        <div class="ann-card" style="border-color:rgba(200,168,75,.4);">
+          <div class="ann-card-top">
+            <div class="ann-meta">
+              <span class="ann-tag tag-policy">Policy</span>
+              <span class="ann-date">March 28, 2025</span>
+              <span class="ann-pinned">Pinned</span>
+            </div>
+            <div class="ann-title">SOP Launch — All Officers Must Review</div>
+            <div class="ann-body">
+              The official Georgia State Roleplay Standard Operating Procedures are now live. All active LEO personnel across GSP, DVPD, and Cobb County are required to review the full SOP before their next patrol shift. Key areas to focus on: pursuit permission requirements, the priority timer system, felony stop VC command format, and the jail-only booking policy.
+              <br><br>
+              Failure to follow updated SOPs may result in in-game consequences or moderation action. If you have questions, reach out to a Lieutenant or above in your respective agency.
+            </div>
+          </div>
+          <div class="ann-divider"></div>
+          <div class="ann-footer">
+            <div class="ann-author">Posted by <span>GSR Staff Team</span></div>
+          </div>
+        </div>
+
+        <!-- ANNOUNCEMENT 2 -->
+        <div class="ann-card">
+          <div class="ann-card-top">
+            <div class="ann-meta">
+              <span class="ann-tag tag-update">Update</span>
+              <span class="ann-date">March 25, 2025</span>
+            </div>
+            <div class="ann-title">GSP Chain of Command Updated</div>
+            <div class="ann-body">
+              The GSP chain of command has been revised to more closely reflect the real Georgia State Patrol rank structure. The top command now runs Colonel → Lieutenant Colonel, with full trooper tiers added at the patrol level (Master Trooper, Trooper First Class, Trooper, Probationary Trooper). All GSP personnel should familiarize themselves with the updated structure on the LEO page.
+            </div>
+          </div>
+          <div class="ann-divider"></div>
+          <div class="ann-footer">
+            <div class="ann-author">Posted by <span>GSR Staff Team</span></div>
+          </div>
+        </div>
+
+        <!-- ANNOUNCEMENT 3 -->
+        <div class="ann-card">
+          <div class="ann-card-top">
+            <div class="ann-meta">
+              <span class="ann-tag tag-general">General</span>
+              <span class="ann-date">March 20, 2025</span>
+            </div>
+            <div class="ann-title">Welcome to Georgia State Roleplay</div>
+            <div class="ann-body">
+              Welcome to the official launch of Georgia State Roleplay! We're excited to open our doors to the ERLC community. Our goal is to provide the most immersive and professionally run law enforcement roleplay experience available. Browse the LEO page to get started, and feel free to apply for staff if you're interested in helping shape the server.
+            </div>
+          </div>
+          <div class="ann-divider"></div>
+          <div class="ann-footer">
+            <div class="ann-author">Posted by <span>GSR Founder</span></div>
+          </div>
+        </div>
+
+        <div class="placeholder-note">
+          <p>Future announcements will appear here</p>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-header">Quick Links</div>
+          <div class="sidebar-body">
+            <div class="sidebar-item">
+              <div class="sidebar-dot"></div>
+              <div>
+                <div class="sidebar-text"><a href="leo.html" style="color:var(--accent);text-decoration:none;">LEO SOP & Procedures</a></div>
+                <div class="sidebar-date">All active SOPs</div>
+              </div>
+            </div>
+            <div class="sidebar-item">
+              <div class="sidebar-dot"></div>
+              <div>
+                <div class="sidebar-text"><a href="https://docs.google.com/forms/d/e/1FAIpQLSexq14qBdljia67RD5OjIw9W_7dXsVxxyWm_G74cuer-xPQ9Q/viewform?usp=dialog" target="_blank" style="color:var(--accent);text-decoration:none;">Staff Application</a></div>
+                <div class="sidebar-date">Open now</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-header">Recent Changes</div>
+          <div class="sidebar-body">
+            <div class="sidebar-item">
+              <div class="sidebar-dot"></div>
+              <div>
+                <div class="sidebar-text">Pursuit staff permission + priority timer added</div>
+                <div class="sidebar-date">Mar 28, 2025</div>
+              </div>
+            </div>
+            <div class="sidebar-item">
+              <div class="sidebar-dot"></div>
+              <div>
+                <div class="sidebar-text">Opposite-lane driving classified as moderation infraction</div>
+                <div class="sidebar-date">Mar 28, 2025</div>
+              </div>
+            </div>
+            <div class="sidebar-item">
+              <div class="sidebar-dot"></div>
+              <div>
+                <div class="sidebar-text">GSP COC revised to mirror real GSP rank structure</div>
+                <div class="sidebar-date">Mar 25, 2025</div>
+              </div>
+            </div>
+            <div class="sidebar-item">
+              <div class="sidebar-dot"></div>
+              <div>
+                <div class="sidebar-text">Jail-only booking policy enforced across all agencies</div>
+                <div class="sidebar-date">Mar 25, 2025</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="apply-sidebar">
+          <div class="apply-sidebar-title">Join the Team</div>
+          <div class="apply-sidebar-sub">Interested in helping run Georgia State Roleplay? Staff applications are open.</div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSexq14qBdljia67RD5OjIw9W_7dXsVxxyWm_G74cuer-xPQ9Q/viewform?usp=dialog" target="_blank" class="apply-sidebar-btn">Apply for Staff</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 <span class="gold">Georgia State Roleplay</span> &nbsp;·&nbsp; ERLC Community &nbsp;·&nbsp; All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>

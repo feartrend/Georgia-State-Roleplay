@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Georgia State Roleplay</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── HOME-ONLY STYLES ── */
+    body { background: var(--navy); }
+
+    /* HERO */
+    .home-hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(200,168,75,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,168,75,.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero-glow {
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(232,168,124,.12) 0%, rgba(13,27,42,0) 70%);
+      pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      bottom: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse at center, rgba(59,130,212,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .home-navbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      height: 64px;
+      border-bottom: 1px solid rgba(200,168,75,.15);
+    }
+    .home-brand {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 20px; font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: .06em;
+    }
+    .home-brand span { color: var(--gold); }
+    .home-nav-links { display: flex; gap: 0; align-items: center; }
+    .home-nav-link {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      text-decoration: none;
+      padding: 0 16px;
+      height: 64px;
+      display: flex; align-items: center;
+      transition: color .15s;
+    }
+    .home-nav-link:hover { color: #fff; }
+    .home-nav-cta {
+      margin-left: 8px;
+      background: var(--gold);
+      color: var(--navy) !important;
+      border-radius: 4px;
+      height: 36px !important;
+      padding: 0 18px !important;
+      font-weight: 700 !important;
+    }
+    .home-nav-cta:hover { background: var(--gold-light) !important; }
+
+    /* HERO CONTENT */
+    .hero-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,168,75,.12);
+      border: 1px solid rgba(200,168,75,.3);
+      border-radius: 100px;
+      padding: 6px 18px;
+      margin-bottom: 2rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    .hero-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 700;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 1rem;
+      letter-spacing: .02em;
+    }
+    .hero-title .line-gold { color: var(--gold); display: block; }
+    .hero-title .line-peach { color: var(--peach); display: block; }
+
+    .hero-desc {
+      font-family: 'Lora', serif;
+      font-size: clamp(16px, 2vw, 20px);
+      color: rgba(255,255,255,.55);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+    }
+
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background .15s, transform .1s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      color: rgba(255,255,255,.7);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px; font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 5px;
+      border: 1px solid rgba(255,255,255,.2);
+      text-decoration: none;
+      transition: border-color .15s, color .15s, transform .1s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,.5); color: #fff; transform: translateY(-1px); }
+
+    /* DIVIDER LINE */
+    .hero-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: .3;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      background: rgba(255,255,255,.03);
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 1.5rem 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    .stat {
+      flex: 1;
+      max-width: 200px;
+      text-align: center;
+      padding: 0 2rem;
+      border-right: 1px solid rgba(255,255,255,.08);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 32px; font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+    }
+
+    /* CONTENT SECTIONS */
+    .home-content { background: var(--surface); }
+
+    /* MISSION */
+    .mission-section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 680px) { .mission-section { grid-template-columns: 1fr; gap: 2rem; } }
+    .mission-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 12px;
+    }
+    .mission-heading {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 36px; font-weight: 700;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .mission-text {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      color: #4a5a6a;
+      line-height: 1.85;
+    }
+    .mission-quote {
+      background: var(--navy);
+      border-radius: 8px;
+      padding: 2rem;
+      position: relative;
+    }
+    .mission-quote::before {
+      content: '"';
+      font-family: 'Lora', serif;
+      font-size: 80px;
+      color: var(--gold);
+      opacity: .3;
+      line-height: 1;
+      position: absolute;
+      top: 10px; left: 20px;
+    }
+    .mission-quote-text {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      color: rgba(255,255,255,.85);
+      line-height: 1.8;
+      font-style: italic;
+      padding-top: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .mission-quote-attr {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 1rem;
+    }
+
+    /* VALUES */
+    .values-section {
+      background: var(--navy);
+      padding: 5rem 2rem;
+    }
+    .values-inner { max-width: 960px; margin: 0 auto; }
+    .section-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .section-heading {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 36px; font-weight: 700;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .value-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: border-color .2s, background .2s;
+    }
+    .value-card:hover {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(200,168,75,.3);
+    }
+    .value-icon {
+      width: 44px; height: 44px;
+      border-radius: 8px;
+      background: rgba(200,168,75,.15);
+      border: 1px solid rgba(200,168,75,.25);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 20px;
+    }
+    .value-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .value-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.7;
+    }
+
+    /* AGENCIES */
+    .agencies-section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .agencies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 2.5rem;
+    }
+    .agency-card {
+      background: var(--white);
+      border: .5px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      border-top: 3px solid var(--gold);
+    }
+    .agency-card-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .agency-card-abbr {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--gold);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .1em;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 12px;
+    }
+    .agency-card-desc { font-size: 14px; color: #4a5a6a; line-height: 1.7; }
+
+    /* CTA BANNER */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy-mid), var(--navy));
+      border-top: 1px solid rgba(200,168,75,.2);
+      border-bottom: 1px solid rgba(200,168,75,.2);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .cta-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 32px; font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .cta-sub { font-size: 16px; color: rgba(255,255,255,.5); margin-bottom: 2rem; font-family: 'Lora', serif; font-style: italic; }
+
+    /* HOME FOOTER */
+    .home-footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(200,168,75,.15);
+      padding: 2rem;
+      text-align: center;
+    }
+    .home-footer p {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px; letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.25);
+    }
+    .home-footer .g { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="home-navbar">
+    <a href="index.html" class="home-brand">Georgia <span>State Roleplay</span></a>
+    <div class="home-nav-links">
+      <a href="index.html" class="home-nav-link" style="color:#fff;">Home</a>
+      <a href="leo.html" class="home-nav-link">LEO</a>
+      <a href="news.html" class="home-nav-link">News</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSexq14qBdljia67RD5OjIw9W_7dXsVxxyWm_G74cuer-xPQ9Q/viewform?usp=dialog" target="_blank" class="home-nav-link home-nav-cta">Join Staff</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="home-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+
+    <div class="hero-body">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        ERLC Roleplay Community
+      </div>
+      <h1 class="hero-title">
+        <span>Georgia</span>
+        <span class="line-gold">State</span>
+        <span class="line-peach">Roleplay</span>
+      </h1>
+      <p class="hero-desc">
+        A serious, immersive law enforcement roleplay experience set across Douglasville and the greater Georgia region.
+      </p>
+      <div class="hero-ctas">
+        <a href="leo.html" class="btn-primary">LEO Information</a>
+        <a href="news.html" class="btn-secondary">News & Updates</a>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Active Agencies</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">GSR</div>
+        <div class="stat-label">Community Tag</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">ERLC</div>
+        <div class="stat-label">Platform</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="home-content">
+
+    <!-- MISSION -->
+    <section class="mission-section">
+      <div>
+        <div class="mission-label">Our Mission</div>
+        <h2 class="mission-heading">Serious Roleplay, Real Standards</h2>
+        <p class="mission-text">
+          Georgia State Roleplay is built around one idea — that great roleplay comes from real structure. We hold our officers to genuine law enforcement standards, follow realistic procedures, and foster a community where every call, every stop, and every pursuit feels earned.
+          <br><br>
+          Whether you're a trooper with GSP, an officer with DVPD, or brand new to the community, you'll find a place here if you're willing to put in the work and respect the craft.
+        </p>
+      </div>
+      <div class="mission-quote">
+        <p class="mission-quote-text">
+          To provide an immersive, professional, and fair law enforcement roleplay environment where integrity, realism, and community come first.
+        </p>
+        <div class="mission-quote-attr">— GSR Mission Statement</div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="values-section">
+      <div class="values-inner">
+        <div class="section-eyebrow">What We Stand For</div>
+        <h2 class="section-heading">Our Core Values</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">⚖️</div>
+            <div class="value-title">Integrity</div>
+            <div class="value-desc">We hold ourselves to the same standards on and off duty. Honesty and accountability are non-negotiable in every interaction.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🎯</div>
+            <div class="value-title">Realism</div>
+            <div class="value-desc">Procedures exist for a reason. We follow real SOPs, use realistic tactics, and treat every scenario with the gravity it deserves.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <div class="value-title">Respect</div>
+            <div class="value-desc">Every member of this community — civilian or officer — deserves to be treated with dignity. We lead by example.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">📈</div>
+            <div class="value-title">Growth</div>
+            <div class="value-desc">We invest in our officers. Training, mentorship, and feedback are how we get better together as a community.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENCIES -->
+    <section class="agencies-section">
+      <div class="section-eyebrow" style="color:var(--peach);text-align:center;">Active Agencies</div>
+      <h2 class="section-heading" style="color:var(--navy);text-align:center;font-size:36px;">Who We Are</h2>
+      <div class="agencies-grid">
+        <div class="agency-card">
+          <div class="agency-card-name">Georgia State Patrol</div>
+          <div class="agency-card-abbr">GSP</div>
+          <p class="agency-card-desc">The primary statewide law enforcement agency. GSP handles highway patrol, pursuits, and holds exclusive authorization for PITs and Field Sobriety Testing.</p>
+        </div>
+        <div class="agency-card">
+          <div class="agency-card-name">Douglasville Police Department</div>
+          <div class="agency-card-abbr">DVPD</div>
+          <p class="agency-card-desc">The local municipal police force covering the Douglasville area. DVPD handles patrol, calls for service, and local law enforcement operations.</p>
+        </div>
+        <div class="agency-card" style="border-top-color: var(--muted);">
+          <div class="agency-card-name">Cobb County Sheriff's Office</div>
+          <div class="agency-card-abbr" style="background:rgba(138,155,176,.2);color:var(--muted);">CCSO</div>
+          <p class="agency-card-desc">A limited sub-unit operating under DVPD's chain of command. Cobb County runs a small number of units and follows all DVPD SOPs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAFF CTA -->
+    <section class="cta-section">
+      <h2 class="cta-title">Interested in Joining Staff?</h2>
+      <p class="cta-sub">We're always looking for dedicated, mature members to help run the community.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSexq14qBdljia67RD5OjIw9W_7dXsVxxyWm_G74cuer-xPQ9Q/viewform?usp=dialog" target="_blank" class="btn-primary">Apply for Staff</a>
+    </section>
+
+  </div>
+
+  <div class="home-footer">
+    <p>© 2025 <span class="g">Georgia State Roleplay</span> &nbsp;·&nbsp; ERLC Community &nbsp;·&nbsp; All Rights Reserved</p>
+  </div>
+
+</body>
+</html>

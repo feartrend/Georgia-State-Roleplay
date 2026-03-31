@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Training Guide — GSR Staff Only</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .staff-banner {
+      background: var(--danger);
+      padding: 8px 2rem;
+      text-align: center;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .staff-banner span { opacity: .7; font-weight: 400; margin-left: 8px; letter-spacing: .05em; }
+  </style>
+</head>
+<body>
+
+  <div class="staff-banner">
+    Staff & Training Personnel Only <span>— Do not share this link publicly</span>
+  </div>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">Georgia <span class="brand-accent">State Roleplay</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="leo.html" class="nav-link">LEO</a>
+      <a href="news.html" class="nav-link">News</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow" style="color:var(--peach);">Staff Only — Do Not Distribute</div>
+      <div class="page-title">Officer Training Guide</div>
+      <div class="page-sub">Internal training documentation for use by Training Officers, Lieutenants, and above.</div>
+    </div>
+  </div>
+  <div class="gold-bar"></div>
+
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('checklist',this)">New Officer Checklist</button>
+    <button class="tab-btn" onclick="switchTab('traffic',this)">Traffic Stop Training</button>
+    <button class="tab-btn" onclick="switchTab('felony',this)">Felony Stop Training</button>
+    <button class="tab-btn" onclick="switchTab('pursuit',this)">Pursuit Training</button>
+    <button class="tab-btn" onclick="switchTab('notes',this)">Training Notes</button>
+  </div>
+
+  <div class="page-content">
+
+    <!-- CHECKLIST -->
+    <div class="tab-panel active" id="tab-checklist">
+      <div class="card">
+        <div class="card-header"><div class="card-header-title">New Officer Training Checklist</div><div class="card-badge badge-red">Staff Use Only</div></div>
+        <div class="card-body">
+          <div class="alert alert-info"><div class="alert-label">Clearance</div><div>All items below must be completed and signed off before a Cadet is cleared for independent patrol. Clearance must be granted by a Lieutenant or above within the officer's respective agency.</div></div>
+          <div class="sub-label">Orientation</div>
+          <div style="display:flex;flex-direction:column;">
+            <div style="display:flex;gap:10px;padding:9px 0;border-bottom:.5px solid #edf0f4;align-items:flex-start;">
+              <input type="checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--navy);">
+              <div style="font-size:14px;color:var(--text);line-height:1.6;">Server overview and hybrid roleplay model explanation</div>
+            </div>
+            <div style="display:flex;gap:10px;padding:9px 0;border-bottom:.5px solid #edf0f4;align-items:flex-start;">
+              <input type="checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--navy);">
+              <div style="font-size:14px;color:var(--text);line-height:1.6;">Chain of command introduction — know your agency's rank structure and COC</div>
+            </div>
+            <div style="display:flex;gap:10px;padding:9px 0;border-bottom:.5px solid #edf0f4;align-items:flex-start;">
+              <input type="checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--navy);">
+              <div style="font-size:14px;color:var(--text);line-height:1.6;">Radio use — 10-codes optional at first, encouraged as they progress</div>
+            </div>
+          </div>
+          <div class="sub-label">Procedures</div>
+          <div style="display:flex;flex-direction:column;">
+            <div style="display:flex;gap:10px;padding:9px 0;border-bottom:.5px solid #edf0f4;align-items:flex-start;">
+              <input type="checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--navy);">
+              <div style="font-size:14px;color:var(--text);line-height:1.6;">Traffic stop procedure — full walkthrough with a training officer</div>
+            </div>
+            <div style="display:flex;gap:10px;padding:9px 0;border-bottom:.5px solid #edf0f4;align-items:flex-start;">
+              <input type="checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--navy);">
+              <div style="font-size:14px;color:var(--text);line-height:1.6;">Felony stop procedure — including VC command delivery format and cover positioning</div>
+            </div>
+            <div style="display:flex;gap:10px;padding:9px 0;border-bottom:.5px solid #edf0f4;align-items:flex-start;">
+              <input type="checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--navy);">
+              <div style="font-size:14px;color:var(--text);line-height:1.6;">Pursuit policy — staff permission, priority timer, PIT and spike rules</div>
+            </div>
+            <div style="display:flex;gap:10px;padding:9px 0;border-bottom:.5px solid #edf0f4;align-items:flex-start;">
+              <input type="checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--navy);">
+              <div style="font-size:14px;color:var(--text);line-height:1.6;">Arrest procedures — probable cause, Miranda rights, jail-only booking</div>
+            </div>
+          </div>
+          <div class="sub-label">Equipment & Appearance</div>
+          <div style="display:flex;flex-direction:column;">
+            <div style="display:flex;gap:10px;padding:9px 0;border-bottom:.5px solid #edf0f4;align-items:flex-start;">
+              <input type="checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--navy);">
+              <div style="font-size:14px;color:var(--text);line-height:1.6;">Vehicle access and whitelist restrictions for their agency</div>
+            </div>
+            <div style="display:flex;gap:10px;padding:9px 0;border-bottom:.5px solid #edf0f4;align-items:flex-start;">
+              <input type="checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--navy);">
+              <div style="font-size:14px;color:var(--text);line-height:1.6;">Uniform classes and assignment rules — verify correct class for duty type</div>
+            </div>
+          </div>
+          <div class="sub-label">Final Assessment</div>
+          <div style="display:flex;flex-direction:column;">
+            <div style="display:flex;gap:10px;padding:9px 0;align-items:flex-start;">
+              <input type="checkbox" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--navy);">
+              <div style="font-size:14px;color:var(--text);line-height:1.6;">Scenario-based test or supervised ride-along with a Corporal or above — signed off by Lieutenant+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRAFFIC STOP TRAINING -->
+    <div class="tab-panel" id="tab-traffic">
+      <div class="card">
+        <div class="card-header"><div class="card-header-title">Traffic Stop — Training Guide</div><div class="card-badge badge-red">Staff Use Only</div></div>
+        <div class="card-body">
+          <div class="alert alert-info"><div class="alert-label">Training Officer Note</div><div>Conduct a live ride-along traffic stop with the cadet. Walk through each step verbally before letting them take the lead. Correct in real time — do not wait until after the stop.</div></div>
+          <div class="sub-label">Common Cadet Mistakes to Watch For</div>
+          <div class="rule-list">
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Activating lights before announcing on radio — must announce first.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Skipping Melonly CAD check — always run the vehicle before approaching.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Approaching from the passenger side — always driver's side unless unsafe.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Not noting passenger count and hands before making contact.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Attempting to conduct FST without GSP — must call for GSP assistance.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Forgetting to close the stop on radio and mark back in service.</div></div>
+          </div>
+          <div class="sub-label">Sign-Off Criteria</div>
+          <div class="rule-list">
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Cadet correctly announces on radio before lights.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Cadet runs Melonly CAD and verbally confirms results.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Cadet approaches correctly and makes professional contact.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Cadet issues correct outcome and logs in CAD.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Cadet closes the stop properly on radio.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FELONY STOP TRAINING -->
+    <div class="tab-panel" id="tab-felony">
+      <div class="card">
+        <div class="card-header"><div class="card-header-title">Felony Stop — Training Guide</div><div class="card-badge badge-red">Staff Use Only</div></div>
+        <div class="card-body">
+          <div class="alert alert-warn"><div class="alert-label">Training Officer Note</div><div>Use a controlled scenario for felony stop training — do not put a cadet in a live high-risk situation without prior walkthrough. Run a dry scenario first, then observe a live one before sign-off.</div></div>
+          <div class="sub-label">Scenario Setup (Dry Run)</div>
+          <div class="step-list">
+            <div class="step-item"><div class="step-num">1</div><div><div class="step-text">Brief the cadet on the scenario: vehicle type, offense, and number of occupants. Do not reveal the outcome in advance.</div></div></div>
+            <div class="step-item"><div class="step-num">2</div><div><div class="step-text">Have the cadet verbally walk through every step before executing — from dispatch notification to CAD logging.</div></div></div>
+            <div class="step-item"><div class="step-num">3</div><div><div class="step-text">Pay close attention to VC command delivery. Commands must be loud, firm, and follow the approved script format.</div></div></div>
+            <div class="step-item"><div class="step-num">4</div><div><div class="step-text">Correct cover positioning — cadet must know to angle the vehicle and not advance on the suspect.</div></div></div>
+          </div>
+          <div class="sub-label">Common Mistakes</div>
+          <div class="rule-list">
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Advancing on the vehicle instead of directing suspects backward.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Searching the vehicle before all occupants are fully handcuffed and secured.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Weak or hesitant VC delivery — must project with authority.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Attempting to transport to any location other than the jail.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PURSUIT TRAINING -->
+    <div class="tab-panel" id="tab-pursuit">
+      <div class="card">
+        <div class="card-header"><div class="card-header-title">Pursuit — Training Guide</div><div class="card-badge badge-red">Staff Use Only</div></div>
+        <div class="card-body">
+          <div class="alert alert-danger"><div class="alert-label">Important</div><div>Cadets may NOT initiate or lead a pursuit. They may ride as secondary only, under direct supervision of a Corporal or above. Do not allow a cadet to call out or make decisions during a live pursuit until cleared.</div></div>
+          <div class="sub-label">Training Sequence</div>
+          <div class="step-list">
+            <div class="step-item"><div class="step-num">1</div><div><div class="step-text">Review the full pursuit policy verbally with the cadet. Confirm they understand the staff permission requirement and the priority timer before any live exposure.</div></div></div>
+            <div class="step-item"><div class="step-num">2</div><div><div class="step-text">Allow the cadet to ride as secondary in a supervised pursuit. Have them practice call-outs (direction, street, landmark) while the training officer confirms accuracy.</div></div></div>
+            <div class="step-item"><div class="step-num">3</div><div><div class="step-text">After the pursuit, debrief the cadet: were call-outs accurate? Did they maintain safe distance? Did they understand the PIT/spike chain of approval?</div></div></div>
+          </div>
+          <div class="sub-label">Call-Out Practice Format</div>
+          <div class="alert alert-info"><div class="alert-label">Script</div><div>"Suspect [direction] on [street name], passing [landmark], approaching [next intersection or landmark]."<br><br>Example: "Suspect northbound on Thornton Road, passing Walmart, approaching Veterans Memorial Highway intersection."</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRAINING NOTES -->
+    <div class="tab-panel" id="tab-notes">
+      <div class="card">
+        <div class="card-header"><div class="card-header-title">Training Officer Notes</div><div class="card-badge badge-red">Staff Use Only</div></div>
+        <div class="card-body">
+          <div class="sub-label">General Guidance</div>
+          <div class="rule-list">
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Training is a privilege for the cadet and a responsibility for the officer. Take it seriously — the quality of your training reflects on the whole department.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Correct mistakes in real time, not after the fact. Letting a mistake slide once teaches the cadet it's acceptable.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Never clear a cadet you're not confident in. If they're not ready, continue the ride-along. There is no rush.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Document any significant issues or repeated mistakes and report to the Lieutenant before sign-off.</div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div class="rule-text">Clearance must be formally granted by a Lieutenant or above — a training officer cannot unilaterally clear a cadet.</div></div>
+          </div>
+          <div class="sub-label">Clearance Sign-Off</div>
+          <div class="alert alert-green"><div class="alert-label">Final Step</div><div>Once the cadet has completed all checklist items and demonstrated competency, submit a clearance recommendation to your Lieutenant. The Lieutenant will conduct a brief evaluation and issue formal clearance if satisfied.</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 <span class="gold">Georgia State Roleplay</span> &nbsp;·&nbsp; <span style="color:var(--danger);">Staff & Training Personnel Only</span></p>
+  </footer>
+
+  <script>
+    function switchTab(id, el) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      el.classList.add('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LEO Information — Georgia State Roleplay</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">Georgia <span class="brand-accent">State Roleplay</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="leo.html" class="nav-link active">LEO</a>
+      <a href="news.html" class="nav-link">News</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSexq14qBdljia67RD5OjIw9W_7dXsVxxyWm_G74cuer-xPQ9Q/viewform?usp=dialog" target="_blank" class="nav-link apply-btn">Join Staff</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">Georgia State Roleplay — Official Documentation</div>
+      <div class="page-title">Law Enforcement SOP</div>
+      <div class="page-sub">Standard Operating Procedures for all sworn LEO personnel across all agencies.</div>
+    </div>
+  </div>
+  <div class="gold-bar"></div>
+
+  <div class="tab-nav" id="tabNav">
+    <button class="tab-btn active" onclick="switchTab('chain',this)">Chain of Command</button>
+    <button class="tab-btn" onclick="switchTab('traffic',this)">Traffic Stops</button>
+    <button class="tab-btn" onclick="switchTab('felony',this)">Felony Stops</button>
+    <button class="tab-btn" onclick="switchTab('pursuits',this)">Pursuits</button>
+    <button class="tab-btn" onclick="switchTab('arrest',this)">Arrests</button>
+    <button class="tab-btn" onclick="switchTab('vehicle',this)">Vehicles</button>
+    <button class="tab-btn" onclick="switchTab('uniform',this)">Uniforms</button>
+  </div>
+
+  <div class="page-content">
+
+    <!-- CHAIN OF COMMAND -->
+    <div class="tab-panel active" id="tab-chain">
+      <div class="coc-split">
+        <div class="card" style="margin-bottom:0;">
+          <div class="card-header"><div class="card-header-title">GSP Chain of Command</div><div class="card-badge badge-blue">GSP</div></div>
+          <div class="card-body" style="padding:0;">
+            <table class="rank-table">
+              <thead><tr><th>Rank</th><th>Role</th></tr></thead>
+              <tbody>
+                <tr class="tier-divider"><td colspan="2">Command</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Colonel</span></td><td>Commanding officer of GSP statewide. Sets all GSP policy.</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Lieutenant Colonel</span></td><td>Strategic oversight. Covers for Colonel when unavailable.</td></tr>
+                <tr class="tier-divider"><td colspan="2">Leadership</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Major</span></td><td>Oversees large operational areas or troop divisions.</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Captain</span></td><td>Commands specific troops or units. Approves spikes and pursuit escalation.</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Lieutenant</span></td><td>Mid-level supervisor, shift lead, training officer.</td></tr>
+                <tr class="tier-divider"><td colspan="2">Supervisory</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Sergeant</span></td><td>Direct ground-level leadership of troopers on patrol.</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Corporal</span></td><td>Senior trooper. Mentors juniors and assists Sergeants.</td></tr>
+                <tr class="tier-divider"><td colspan="2">Patrol</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Master Trooper</span></td><td>Experienced senior patrol trooper and field mentor.</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Trooper First Class</span></td><td>Patrol trooper with demonstrated field experience.</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Trooper</span></td><td>Primary patrol — traffic, calls, enforcement.</td></tr>
+                <tr><td><span class="rank-pip dim"></span><span class="rank-name">Probationary Trooper</span></td><td>Under active training. Ride-along only until cleared by Lieutenant+.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:0;">
+          <div class="card-header"><div class="card-header-title">DVPD Chain of Command</div><div class="card-badge badge-gold">DVPD</div></div>
+          <div class="card-body" style="padding:0;">
+            <table class="rank-table">
+              <thead><tr><th>Rank</th><th>Role</th></tr></thead>
+              <tbody>
+                <tr class="tier-divider"><td colspan="2">Command</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Chief of Police</span></td><td>Highest authority in DVPD. Sets department policy.</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Deputy Chief</span></td><td>Manages daily operations. Fills in for Chief.</td></tr>
+                <tr class="tier-divider"><td colspan="2">Leadership</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Major</span></td><td>Oversees divisions — traffic, patrol.</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Captain</span></td><td>Shift command, supervises training. Approves spikes and pursuit escalation.</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Lieutenant</span></td><td>Shift lead and training officer.</td></tr>
+                <tr class="tier-divider"><td colspan="2">Supervisory</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Sergeant</span></td><td>Directly supervises patrol officers on shift.</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Corporal</span></td><td>Senior officer. Mentors juniors, assists Sergeants.</td></tr>
+                <tr class="tier-divider"><td colspan="2">Patrol</td></tr>
+                <tr><td><span class="rank-pip"></span><span class="rank-name">Officer</span></td><td>Primary patrol — calls, traffic stops, enforcement.</td></tr>
+                <tr><td><span class="rank-pip dim"></span><span class="rank-name">Cadet / Trainee</span></td><td>Under active training. Ride-along only until cleared by Lieutenant+.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:6px;">Cobb County Sheriff's Office operates as a sub-unit under DVPD's chain of command.</p>
+    </div>
+
+    <!-- TRAFFIC STOPS -->
+    <div class="tab-panel" id="tab-traffic">
+      <div class="card">
+        <div class="card-header"><div class="card-header-title">Traffic Stop Procedures</div><div class="card-badge badge-blue">All Agencies</div></div>
+        <div class="card-body">
+          <div class="sub-label">Initiation</div>
+          <div class="step-list">
+            <div class="step-item"><div class="step-num">1</div><div><div class="step-text">Observe the violation and confirm it warrants a stop — speeding, equipment violations, erratic driving, suspicious plates, etc.</div></div></div>
+            <div class="step-item"><div class="step-num">2</div><div><div class="step-text">Announce the stop over radio before activating lights. Provide vehicle description, color, direction of travel, and your unit number.</div><div class="step-note">Example: "Unit 12, traffic stop on a red sedan northbound on Thornton Road, requesting Melonly CAD."</div></div></div>
+            <div class="step-item"><div class="step-num">3</div><div><div class="step-text">Activate emergency lights. If the vehicle does not yield, use a brief siren burst before escalating further.</div></div></div>
+          </div>
+          <div class="sub-label">Approach & Contact</div>
+          <div class="step-list">
+            <div class="step-item"><div class="step-num">4</div><div><div class="step-text">Once stopped, run the vehicle through Melonly CAD. Gather the driver's name and check for warrants, registration, and license status.</div></div></div>
+            <div class="step-item"><div class="step-num">5</div><div><div class="step-text">Approach from the driver's side. Note passengers, visible hands, and any suspicious movement before making contact.</div></div></div>
+            <div class="step-item"><div class="step-num">6</div><div><div class="step-text">Greet the driver, state the reason for the stop, and request license, registration, and proof of insurance.</div></div></div>
+          </div>
+          <div class="sub-label">Field Sobriety Testing (FST)</div>
+          <div class="alert alert-warn"><div class="alert-label">GSP Only</div><div>GSP is the only agency authorized to conduct FSTs. All other agencies must request GSP assistance if impairment is suspected.</div></div>
+          <div class="step-list">
+            <div class="step-item"><div class="step-num">7</div><div><div class="step-text">If impairment is suspected, GSP may order the driver to exit and administer a standard FST — HGN, walk-and-turn, and one-leg stand.</div></div></div>
+            <div class="step-item"><div class="step-num">8</div><div><div class="step-text">If the FST is failed, place the driver under arrest for DUI. Notify dispatch and document in Melonly CAD immediately.</div></div></div>
+          </div>
+          <div class="sub-label">Conclusion</div>
+          <div class="step-list">
+            <div class="step-item"><div class="step-num">9</div><div><div class="step-text">Issue a citation, verbal warning, or make an arrest based on findings. Log all outcomes in Melonly CAD.</div></div></div>
+            <div class="step-item"><div class="step-num">10</div><div><div class="step-text">Notify dispatch the stop is complete and you are back in service.</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FELONY STOPS -->
+    <div class="tab-panel" id="tab-felony">
+      <div class="card">
+        <div class="card-header"><div class="card-header-title">Felony Stop Procedures</div><div class="card-badge badge-red">High Risk</div></div>
+        <div class="card-body">
+          <div class="alert alert-info"><div class="alert-label">When to Use</div><div>Initiate a felony stop when a vehicle is confirmed or reasonably suspected to be involved in a felony — robbery, weapons offense, active felony warrant, etc.</div></div>
+          <div class="step-list">
+            <div class="step-item"><div class="step-num">1</div><div><div class="step-text">Notify dispatch immediately — vehicle description, current location, and nature of the felony. Request backup before initiating.</div></div></div>
+            <div class="step-item"><div class="step-num">2</div><div><div class="step-text">Maintain a safe following distance. Do not crowd the vehicle. Wait for backup when possible before making contact.</div></div></div>
+            <div class="step-item"><div class="step-num">3</div><div>
+              <div class="step-text">Activate lights and siren. Deliver commands clearly over VC, projecting firmly as if over a PA system:</div>
+              <div class="script-line">"This is [your agency]. Driver — turn off the engine and throw your keys out of the window now."</div>
+              <div class="script-line">"All occupants — exit the vehicle one at a time, hands raised above your head. Walk slowly backward toward the sound of my voice."</div>
+              <div class="script-line">"Do not reach for anything. Do not make any sudden movements. Failure to comply will be met with force."</div>
+            </div></div>
+            <div class="step-item"><div class="step-num">4</div><div><div class="step-text">Position vehicles at an angle for cover. Draw service weapon. Do not advance — direct suspects to walk backward to your position.</div></div></div>
+            <div class="step-item"><div class="step-num">5</div><div><div class="step-text">Handcuff and detain all occupants before clearing the vehicle. Search only after all occupants are fully secured.</div></div></div>
+            <div class="step-item"><div class="step-num">6</div><div><div class="step-text">Transport suspect(s) directly to the jail for booking. All bookings must be completed at the jail — no exceptions.</div></div></div>
+            <div class="step-item"><div class="step-num">7</div><div><div class="step-text">Log all details in Melonly CAD immediately, including any use-of-force incidents.</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PURSUITS -->
+    <div class="tab-panel" id="tab-pursuits">
+      <div class="card">
+        <div class="card-header"><div class="card-header-title">10-80 Pursuit Policy</div><div class="card-badge badge-amber">Staff Permission Required</div></div>
+        <div class="card-body">
+          <div class="permission-box">
+            <div class="permission-title">Staff Permission Required</div>
+            <div class="permission-text">All pursuits require staff permission before initiation. Permission is easily obtainable — this exists solely to prevent too many pursuits running simultaneously. Request permission via radio or VC from any available staff member before activating.</div>
+          </div>
+          <div class="alert alert-info"><div class="alert-label">Priority Timer</div><div>Once permission is granted, a priority timer must be started immediately. The pursuit is authorized only for the duration of that active timer. If the timer expires, reassess continuation with staff before proceeding.</div></div>
+          <div class="sub-label">Conduct During Pursuit</div>
+          <div class="rule-list">
+            <div class="rule-item"><div class="rule-dot"></div><div><div class="rule-text">Announce the pursuit immediately — state direction, road name, and full vehicle description.</div></div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div>
+              <div class="rule-text">Secondary units are responsible for continuous call-outs. Include direction, street name, and nearby landmarks at every turn.</div>
+              <div class="rule-sub">Example: "Suspect northbound on Thornton Road, passing Walmart, approaching Veterans Memorial Highway intersection."</div>
+            </div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div><div class="rule-text">Only GSP units are authorized to perform a PIT maneuver. All other agencies are prohibited from PITing under any circumstance.</div></div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div><div class="rule-text">Permission to PIT must be explicitly granted by a supervisor before execution. Announce intent on radio and wait for verbal confirmation.</div></div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div><div class="rule-text">Spike strips are for high-priority chases only and must be approved by a Captain or above. Deploy at a pre-announced location — avoid intersections, hills, bends, or high civilian traffic areas.</div></div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div><div class="rule-text">No Grapplers are authorized under any circumstances.</div></div></div>
+            <div class="rule-item"><div class="rule-dot"></div><div><div class="rule-text">LEO vehicle count must remain realistic. Do not flood the pursuit — only authorized responding units may be involved.</div></div></div>
+          </div>
+          <div class="alert alert-danger" style="margin-top:12px;"><div class="alert-label">Moderation Infraction</div><div>Driving on the opposite lane of traffic is strictly prohibited at all times, including during active pursuits. Violations will result in a moderation infraction with no exceptions.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARREST -->
+    <div class="tab-panel" id="tab-arrest">
+      <div class="card">
+        <div class="card-header"><div class="card-header-title">Arrest Procedures</div><div class="card-badge badge-green">All Agencies</div></div>
+        <div class="card-body">
+          <div class="step-list">
+            <div class="step-item"><div class="step-num">1</div><div><div class="step-text">Confirm you have probable cause or an active warrant before placing anyone under arrest. Do not arrest without justification.</div></div></div>
+            <div class="step-item"><div class="step-num">2</div><div><div class="step-text">Announce the arrest clearly — inform the suspect they are under arrest and state the specific charge(s).</div></div></div>
+            <div class="step-item"><div class="step-num">3</div><div><div class="step-text">Handcuff the suspect. Conduct a pat-down search for weapons and contraband before transport. Do not skip this step.</div></div></div>
+            <div class="step-item"><div class="step-num">4</div><div><div class="step-text">Read Miranda rights before any questioning begins. If the suspect invokes their right to remain silent, all questioning must cease immediately.</div></div></div>
+            <div class="step-item"><div class="step-num">5</div><div><div class="step-text">Transport the suspect directly to the jail. All bookings must be completed at the jail — suspects may not be processed at any other location.</div></div></div>
+            <div class="step-item"><div class="step-num">6</div><div><div class="step-text">Notify dispatch of transport and ETA. Complete the full arrest report in Melonly CAD including charges, evidence, and any use-of-force incidents.</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VEHICLES -->
+    <div class="tab-panel" id="tab-vehicle">
+      <div class="card">
+        <div class="card-header"><div class="card-header-title">Vehicle SOP</div><div class="card-badge badge-blue">All Agencies</div></div>
+        <div class="card-body">
+          <table class="veh-table">
+            <thead><tr><th>Vehicle Type</th><th>Whitelist</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr>
+                <td style="font-size:14px;color:var(--text);font-weight:500;">Standard Patrol Vehicle<br><span style="font-size:12px;color:var(--muted);font-weight:400;">Agency livery</span></td>
+                <td><span class="wl-no">No WL</span></td>
+                <td>Default vehicle for all Officers / Troopers and above across all agencies.</td>
+              </tr>
+              <tr>
+                <td style="font-size:14px;color:var(--text);font-weight:500;">Undercover / Unmarked Vehicle</td>
+                <td><span class="wl-yes">WL Required</span></td>
+                <td>Restricted to whitelisted officers only. Must be authorized before use.</td>
+              </tr>
+              <tr>
+                <td style="font-size:14px;color:var(--text);font-weight:500;">Marked Supervisor Vehicle</td>
+                <td><span class="wl-na">N/A</span></td>
+                <td>No marked supervisor vehicle available at this time. Subject to future update.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- UNIFORM -->
+    <div class="tab-panel" id="tab-uniform">
+      <div class="card">
+        <div class="card-header"><div class="card-header-title">Uniform SOP</div><div class="card-badge badge-blue">All Agencies</div></div>
+        <div class="card-body">
+          <div class="alert alert-warn"><div class="alert-label">Policy</div><div>All officers must wear the uniform class assigned to their current duty type. Wearing the incorrect class while on duty is a uniform violation.</div></div>
+          <div class="uniform-grid">
+            <div class="uniform-card"><div class="uniform-class">Class A</div><div class="uniform-name">Formal Dress</div><div class="uniform-desc">Required for training events, formal ceremonies, and official department functions.</div></div>
+            <div class="uniform-card"><div class="uniform-class">Class B</div><div class="uniform-name">Standard Patrol</div><div class="uniform-desc">Basic patrol uniform — long sleeve. Worn during standard patrol shifts.</div></div>
+            <div class="uniform-card"><div class="uniform-class">Class C</div><div class="uniform-name">Daily Patrol</div><div class="uniform-desc">Short sleeve uniform for daily patrol and general duty.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 <span class="gold">Georgia State Roleplay</span> &nbsp;·&nbsp; ERLC Community &nbsp;·&nbsp; All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function switchTab(id, el) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      el.classList.add('active');
+    }
+  </script>
+</body>
+</html>
